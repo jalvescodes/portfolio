@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Alves — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #050505;
+    --bg-raised: #0a0a0a;
+    --line: #1c1c1a;
+    --text: #e7e5df;
+    --text-dim: #8a8a84;
+    --text-faint: #4d4d48;
+    --accent: #ff8a3d;
+    --accent-dim: #8a4d24;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection{ background: var(--accent); color: #050505; }
+
+  a{ color: var(--text); text-decoration-color: var(--text-faint); text-underline-offset: 3px; }
+  a:hover{ color: var(--accent); text-decoration-color: var(--accent); }
+
+  .mono{ font-family: 'JetBrains Mono', monospace; }
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position: sticky;
+    top: 0;
+    background: rgba(5,5,5,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+  nav .wrap{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    height: 56px;
+  }
+  nav .brand{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  nav .brand strong{ color: var(--text); font-weight: 500; }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap: 22px;
+  }
+  nav a{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  nav a:hover{ color: var(--accent); }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .prompt-line{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+  }
+  .prompt-line .sym{ color: var(--accent-dim); }
+  #typed{ color: var(--text-dim); }
+  .cursor{
+    display:inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  h1{
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+  }
+  h1 .accent{ color: var(--accent); }
+
+  .hero p.lede{
+    margin-top: 18px;
+    max-width: 58ch;
+    color: var(--text-dim);
+    font-size: 16px;
+  }
+
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 8px 18px;
+    margin-top: 28px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .hero-meta span{ color: var(--text-dim); }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding: 56px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .section-head .path{
+    font-family:'JetBrains Mono', monospace;
+    color: var(--text-faint);
+    font-size: 13px;
+  }
+  .section-head h2{
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project{
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .project:first-of-type{ border-top: none; padding-top: 0; }
+
+  .project-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .project-name{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .project-name a{ color: var(--text); }
+  .project-name a:hover{ color: var(--accent); }
+  .project-year{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+
+  .project-desc{ color: var(--text-dim); font-size: 14.5px; max-width: 62ch; }
+
+  .project-stack{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .project-stack span{ color: var(--accent-dim); }
+
+  .project-stats{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    display:flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-stats b{ color: var(--accent); font-weight: 500; }
+
+  .project-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--text-faint);
+    padding-bottom: 1px;
+    width: fit-content;
+  }
+  .project-link:hover{ color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ---------- EXPERIENCE ---------- */
+  .role{
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+    display:flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .role:first-of-type{ border-top:none; padding-top:0; }
+  .role-left .title{ font-weight: 500; }
+  .role-left .org{ color: var(--text-dim); font-size: 14.5px; }
+  .role-date{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding: 48px 0 80px;
+  }
+  footer .prompt-line{ margin-bottom: 10px; }
+  footer .links{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+  footer .foot-note{
+    margin-top: 40px;
+    color: var(--text-faint);
+    font-size: 12px;
+    font-family:'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 560px){
+    h1{ font-size: 27px; }
+    nav ul{ gap: 14px; }
+    .hero{ padding: 72px 0 48px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{ animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">~/<strong>jalvescodes</strong></div>
+    <ul>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="prompt-line"><span class="sym">$</span> cat about.md</div>
+    <div class="prompt-line" style="margin-top:-6px;"><span id="typed"></span></div>
+    <h1>Jonathan Alves | <span class="accent">Software Engineer</span></h1>
+    <p class="lede">
+      Spent almost a decade planning and estimating civil infrastructure projects, where precision
+      wasn't optional. At 42 Lisboa I apply that same rigor to C and Python: memory-safe, tested,
+      and built to hold up under pressure.
+    </p>
+    <div class="hero-meta">
+      <div>📍 <span>Lisbon, Portugal</span></div>
+      <div>🕐 <span>UTC+0</span></div>
+      <div>💼 <span>Open to Remote / Hybrid</span></div>
+      <div>🗣 <span>English - Fluent</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="path mono">./projects</span>
+      <h2>Portfolio</h2>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <div class="project-name">libft <a href="https://github.com/42-Lisboa/libft" target="_blank" rel="noopener">↗</a></div>
+        <div class="project-year">2026</div>
+      </div>
+      <div class="project-desc">
+        Custom C standard library built from scratch: memory management, pointer manipulation, and a
+        structured Makefile-driven build.
+      </div>
+      <div class="project-stack">stack: <span>C · Makefile · Unit Testing</span></div>
+      <a class="project-link" href="https://github.com/42-Lisboa/libft" target="_blank" rel="noopener">view repository</a>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <div class="project-name">get_next_line <a href="https://github.com/42-Lisboa/get_next_line" target="_blank" rel="noopener">↗</a></div>
+        <div class="project-year">2026</div>
+      </div>
+      <div class="project-desc">
+        File-descriptor line-reading function in C, built around static memory management and buffered parsing.
+      </div>
+      <div class="project-stack">stack: <span>C · GitLab CI/CD · Valgrind</span></div>
+      <div class="project-stats">
+        <span><b>100/100</b> evaluation</span>
+        <span><b>0</b> memory leaks (Valgrind)</span>
+        <span><b>4-stage</b> CI/CD pipeline</span>
+      </div>
+      <a class="project-link" href="https://github.com/42-Lisboa/get_next_line" target="_blank" rel="noopener">view repository</a>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <div class="project-name">push_swap <a href="https://github.com/42-Lisboa/push_swap" target="_blank" rel="noopener">↗</a></div>
+        <div class="project-year">2026</div>
+      </div>
+      <div class="project-desc">
+        Sorting algorithm using two stacks and a restricted instruction set, with robust input parsing and
+        overflow-safe range validation.
+      </div>
+      <div class="project-stack">stack: <span>C · Algorithms · Data Structures</span></div>
+      <div class="project-stats">
+        <span>validated on <b>100 / 500 / 5000</b>-element datasets</span>
+      </div>
+      <a class="project-link" href="https://github.com/42-Lisboa/push_swap" target="_blank" rel="noopener">view repository</a>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <div class="project-name">python-piscine <a href="https://github.com/42-Lisboa/Python_Piscine" target="_blank" rel="noopener">↗</a></div>
+        <div class="project-year">2026</div>
+      </div>
+      <div class="project-desc">
+        Modules from 42's Python Piscine (py00–py02) - scripting fundamentals, OOP, and data manipulation,
+        documented with per-module READMEs.
+      </div>
+      <div class="project-stack">stack: <span>Python</span></div>
+      <a class="project-link" href="https://github.com/42-Lisboa/Python_Piscine" target="_blank" rel="noopener">view repository</a>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <div class="project-name">gitfit</div>
+        <div class="project-year">Jul 2026 — Present</div>
+      </div>
+      <div class="project-desc">
+        Founded and run the official fitness club at 42 Lisboa with monthly challenges and a tiered badge
+        ranking system (Bronze / Silver / Gold / Platinum).
+      </div>
+      <div class="project-stack">role: <span>Founder &amp; Organizer</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="path mono">./experience</span>
+      <h2>Before 42</h2>
+    </div>
+    
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Business Analyst &amp; Co-founder</div>
+        <div class="org">Empvision Innovation Consulting, Lisbon</div>
+      </div>
+      <div class="role-date">06/2021 — 01/2025</div>
+    </div>
+    
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Senior Risk &amp; Fraud Analyst</div>
+        <div class="org">Cognizant: Fintech domain, Lisbon</div>
+      </div>
+      <div class="role-date">09/2022 — 09/2024</div>
+    </div>
+
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Customer Support Representative</div>
+        <div class="org">Uber, São Paulo</div>
+      </div>
+      <div class="role-date">05/2018 — 08/2019</div>
+    </div>
+
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Cost Estimator &amp; Technical Planner</div>
+        <div class="org">Civil Engineering sector, Brazil</div>
+      </div>
+      <div class="role-date">01/2008 — 01/2017</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="prompt-line"><span class="sym">$</span> cat contact.txt</div>
+    <div class="links">
+      <a href="mailto:jcas1808@gmail.com">jcas1808@gmail.com</a>
+      <a href="https://linkedin.com/in/jalvescodes" target="_blank" rel="noopener">linkedin.com/in/jalvescodes</a>
+      <a href="https://github.com/jalvescodes" target="_blank" rel="noopener">github.com/jalvescodes</a>
+      <a href="https://gitlab.com/jalvescodes" target="_blank" rel="noopener">gitlab.com/jalvescodes</a>
+    </div>
+    <div class="foot-note">Lisbon, Portugal · UTC+0 · Open to remote</div>
+  </div>
+</footer>
+
+<script>
+  const text = "C & Python developer. 8 years in civil engineering. 42 Lisboa, 2026 class.";
+  const el = document.getElementById('typed');
+  if(el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    let i = 0;
+    el.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    el.after(cursor);
+    function type(){
+      if(i < text.length){
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 18);
+      }
+    }
+    type();
+  } else if (el) {
+    el.textContent = text;
+  }
+</script>
+
+</body>
+</html>
