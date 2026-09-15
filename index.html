@@ -237,6 +237,86 @@
     white-space: nowrap;
   }
 
+  /* ---------- RESUME / CV ---------- */
+  .section-head-resume {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .section-head-resume .head-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--text);
+    color: var(--bg) !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .btn-download:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+  .btn-download svg {
+    width: 16px;
+    height: 16px;
+  }
+  .resume-section-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin: 32px 0 16px 0;
+  }
+  .resume-block {
+    margin-bottom: 24px;
+  }
+  .resume-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .resume-title { font-weight: 600; color: var(--text); }
+  .resume-subtitle { color: var(--text-dim); font-size: 14.5px; }
+  .resume-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+    text-align: right;
+  }
+  .resume-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: var(--text-dim);
+    font-size: 14.5px;
+  }
+  .resume-list li { margin-bottom: 6px; }
+  .resume-list li strong { color: var(--text); font-weight: 500; }
+  .resume-skills-list {
+    list-style: none;
+    padding: 0;
+    color: var(--text-dim);
+    font-size: 14.5px;
+  }
+  .resume-skills-list li { margin-bottom: 8px; }
+  .resume-skills-list strong { color: var(--text); font-weight: 600; }
+
   /* ---------- FOOTER ---------- */
   footer{
     padding: 48px 0 80px;
@@ -334,6 +414,7 @@
     <ul>
       <li><a href="#projects">projects</a></li>
       <li><a href="#experience">experience</a></li>
+      <li><a href="#resume">resume</a></li>
       <li><a href="#contact">contact</a></li>
       <li>
         <button class="theme-toggle" type="button" aria-label="Toggle theme">
@@ -453,18 +534,18 @@
 
     <div class="role">
       <div class="role-left">
-        <div class="title">Senior Risk &amp; Fraud Analyst</div>
-        <div class="org">Cognizant - Fintech domain, Lisbon</div>
-      </div>
-      <div class="role-date">09/2022 - 09/2024</div>
-    </div>
-
-    <div class="role">
-      <div class="role-left">
         <div class="title">Business Analyst &amp; Co-founder</div>
         <div class="org">Empvision Innovation Consulting, Lisbon</div>
       </div>
       <div class="role-date">06/2021 - 01/2025</div>
+    </div>
+
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Senior Risk &amp; Fraud Analyst</div>
+        <div class="org">Cognizant - Fintech domain, Lisbon</div>
+      </div>
+      <div class="role-date">09/2022 - 09/2024</div>
     </div>
 
     <div class="role">
@@ -482,6 +563,211 @@
       </div>
       <div class="role-date">01/2008 - 01/2017</div>
     </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    
+    <div class="section-head-resume">
+      <div class="head-left">
+        <span class="path mono">./resume</span>
+        <h2>Curriculum Vitae</h2>
+      </div>
+      <a href="Jonathan_Alves-Software_Engineer-Resume.pdf" download="Jonathan_Alves-Software_Engineer-Resume.pdf" class="btn-download">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- SUMMARY -->
+    <h3 class="resume-section-title">Summary</h3>
+    <p class="project-desc" style="max-width: 100%;">
+      Transitioning into a Developer role after an 8-year career in civil engineering and project planning. Building a strong Computer Science foundation at 42 Lisboa, focusing on Data Structures and Algorithms. Offering analytical precision, Fintech domain knowledge, and Fluent English. Proven ability to design, implement, and write clean, scalable code, perform rigorous debugging, and apply problem-solving skills to software products within cross-functional teams. Eager to work in a Junior/Intern developer position.
+    </p>
+
+    <!-- EDUCATION -->
+    <h3 class="resume-section-title">Education</h3>
+    
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">42 Lisboa</div>
+          <div class="resume-subtitle">Software Engineering Student (Common Core)</div>
+        </div>
+        <div class="resume-meta">
+          <div>Lisbon, Portugal</div>
+          <div>01/2026 – Present</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Mastering software engineering fundamentals, Data Structures and Algorithms, and low-level programming in C and Python.</li>
+        <li>Implementing strict design patterns (OOP), memory management, and scalable software architectures.</li>
+        <li>Setting up repository automations with GitLab CI/CD for testing protocols, Makefiles, and strict code linting rules in the projects.</li>
+        <li>Successfully completed the intensive 26-day 42 Piscine coding bootcamp.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">FIAP - Paulista Faculty of Informatics and Administration</div>
+          <div class="resume-subtitle">Bachelor's in Information Technology Management</div>
+        </div>
+        <div class="resume-meta">
+          <div>Sao Paulo, Brazil</div>
+          <div>01/2017 – 03/2019</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Bridged technical development platforms with IT project methodologies (Agile, Scrum, Cobit).</li>
+        <li>Awarded 3rd place for the best Artificial Intelligence project in the first year and 4th place finalist for the final thesis.</li>
+      </ul>
+    </div>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <h3 class="resume-section-title">Professional Experience</h3>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">Business Analyst and Co-founder</div>
+          <div class="resume-subtitle">Empvision Innovation Consulting</div>
+        </div>
+        <div class="resume-meta">
+          <div>Lisbon, Portugal</div>
+          <div>06/2021 – 01/2025</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Focus on improving operational efficiency through strong data analysis and digital market trends.</li>
+        <li>Map requirements, design new software systems and IT Solutions, optimizing internal process workflows for tech-oriented business models.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">Senior Risk and Fraud Analyst</div>
+          <div class="resume-subtitle">Cognizant (Fintech Domain)</div>
+        </div>
+        <div class="resume-meta">
+          <div>Lisbon, Portugal</div>
+          <div>09/2022 – 09/2024</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Analyzing existing programs and investigating complex incidents using advanced data analysis tools to detect and mitigate suspicious patterns in digital wallet transactions.</li>
+        <li>Collaborate directly with cross-functional multidisciplinary engineering and compliance teams to develop systemic solutions and maintain security systems.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">Customer Support Representative</div>
+          <div class="resume-subtitle">Uber</div>
+        </div>
+        <div class="resume-meta">
+          <div>Sao Paulo, Brazil</div>
+          <div>05/2018 – 08/2019</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Performed deep troubleshooting of critical problems, evaluating user feedback, and fixing bugs reported on the platform.</li>
+        <li>Created data-driven internal projects and technical documents to improve operational KPIs in collaboration with the Center of Excellence.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">Cost Estimator and Technical Planner</div>
+          <div class="resume-subtitle">Civil Engineering Sector</div>
+        </div>
+        <div class="resume-meta">
+          <div>Sao Paulo - Rio, Brazil</div>
+          <div>01/2008 – 01/2017</div>
+        </div>
+      </div>
+      <ul class="resume-list">
+        <li>Managed and manipulated robust databases via ERP System and engineering software, ensuring extreme precision and version control.</li>
+        <li>Applied analytical structuring and mathematical modeling to create, analyze and coordinate budgets, demonstrating the ability to work well under pressure.</li>
+      </ul>
+    </div>
+
+    <!-- TECHNICAL PROJECTS -->
+    <h3 class="resume-section-title">Technical Projects</h3>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">Libft (Custom C Library)</div>
+          <div class="resume-subtitle">C, Makefile, Unit Testing</div>
+        </div>
+        <div class="resume-meta">2026</div>
+      </div>
+      <ul class="resume-list">
+        <li>Designed and implemented a custom C standard library from scratch, demonstrating advanced memory management, pointer manipulation, and rigorous debugging practices.</li>
+        <li>Applied industry best practices for version control using Conventional Commits (cz-git) and structured Makefiles for efficient compilation.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">get_next_line (File Parsing and Memory Management)</div>
+          <div class="resume-subtitle">C, GitLab CI/CD, Valgrind</div>
+        </div>
+        <div class="resume-meta">2026</div>
+      </div>
+      <ul class="resume-list">
+        <li>Engineered a file-descriptor line-reading function, achieving a <strong>100/100 evaluation score</strong> with <strong>zero memory leaks</strong> detected via Valgrind.</li>
+        <li>Built a GitLab CI/CD pipeline with <strong>4 automated stages</strong> (Norminette check, parallel BUFFER-SIZE builds, output validation, Valgrind memory check) running on every commit.</li>
+        <li>Authored comprehensive technical documentation (README) utilizing shields.io badges to communicate project architecture.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">push_swap (Sorting Algorithm)</div>
+          <div class="resume-subtitle">C, Algorithms, Data Structures</div>
+        </div>
+        <div class="resume-meta">2026</div>
+      </div>
+      <ul class="resume-list">
+        <li>Implemented an tightened sorting algorithm with two stacks and a restricted instruction set, then validated it against 42's standard evaluation benchmarks on 100 / 500 / 5000-element datasets.</li>
+        <li>Engineered robust input parsing (<code>ft_atoi</code>) with rigorous range validation to prevent integer overflow vulnerabilities.</li>
+      </ul>
+    </div>
+
+    <div class="resume-block">
+      <div class="resume-block-header">
+        <div>
+          <div class="resume-title">GitFit (Official 42 Lisboa Club)</div>
+          <div class="resume-subtitle">Founder and Organizer</div>
+        </div>
+        <div class="resume-meta">07/2026 – Present</div>
+      </div>
+      <ul class="resume-list">
+        <li>Founded and lead the official athletic group at 42 Lisboa, organizing monthly fitness challenges and a tiered badge ranking system (Bronze/Silver/Gold/Platinum) to promote well-being among developers.</li>
+      </ul>
+    </div>
+
+    <!-- SKILLS -->
+    <h3 class="resume-section-title">Skills</h3>
+    <ul class="resume-skills-list">
+      <li><strong>Languages:</strong> Python, C, SQL, Bash</li>
+      <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Pydantic</li>
+      <li><strong>Tools:</strong> Git, GitHub, GitLab CI/CD, Conventional Commits, Valgrind, Docker, Linux, Jira, Trello, ClickUp, Figma</li>
+      <li><strong>Architecture and Concepts:</strong> Object-Oriented Programming (OOP), Data Structures and Algorithms, API Integration, Unit Testing, Clean Code, Agile development/Scrum, BPMN</li>
+      <li><strong>Soft Skills:</strong> Analytical Thinking, Problem-solving, Fast Learner, Effective Communication, Resilience, Conflict Management</li>
+      <li><strong>Languages Spoken:</strong> Portuguese (Native), English (Fluent -- Professional Working Proficiency), Spanish (Basic), French (Basic)</li>
+    </ul>
+
   </div>
 </section>
 
