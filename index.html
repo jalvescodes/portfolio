@@ -68,7 +68,11 @@
     display:flex;
     justify-content: space-between;
     align-items:center;
-    height: 56px;
+    min-height: 56px;
+    flex-wrap: wrap; 
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   nav .brand{
     font-family:'JetBrains Mono', monospace;
@@ -79,7 +83,9 @@
   nav ul{
     list-style:none;
     display:flex;
-    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 16px;
   }
   nav a{
     font-family:'JetBrains Mono', monospace;
@@ -146,7 +152,8 @@
   .section-head{
     display:flex;
     align-items: baseline;
-    gap: 12px;
+    flex-wrap: wrap; 
+    gap: 8px 12px;
     margin-bottom: 36px;
   }
   .section-head .path{
@@ -238,18 +245,16 @@
   }
 
   /* ---------- RESUME / CV ---------- */
-  .section-head-resume {
+  .resume-header-bar {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 36px;
   }
-  .section-head-resume .head-left {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
+  .resume-header-bar .section-head {
+    margin-bottom: 0;
   }
   .btn-download {
     display: inline-flex;
@@ -274,7 +279,8 @@
     height: 16px;
   }
   .resume-section-title {
-    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-faint);
@@ -292,7 +298,17 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .resume-title { font-weight: 600; color: var(--text); }
+  
+  /* Highlights do CV */
+  .resume-hl { color: var(--accent); font-weight: 500; }
+  .resume-hl-dim { color: var(--accent-dim); font-weight: 500; }
+  
+  .resume-title { 
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px; 
+    font-weight: 500; 
+    color: var(--text); 
+  }
   .resume-subtitle { color: var(--text-dim); font-size: 14.5px; }
   .resume-meta {
     font-family: 'JetBrains Mono', monospace;
@@ -315,7 +331,13 @@
     font-size: 14.5px;
   }
   .resume-skills-list li { margin-bottom: 8px; }
-  .resume-skills-list strong { color: var(--text); font-weight: 600; }
+  
+  .resume-skills-list strong { 
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 13px;
+    color: var(--accent-dim); 
+    font-weight: 500; 
+  }
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -336,10 +358,18 @@
     font-family:'JetBrains Mono', monospace;
   }
 
+  /* ---------- MEDIA QUERIES (Responsividade) ---------- */
   @media (max-width: 560px){
     h1{ font-size: 27px; }
-    nav ul{ gap: 14px; }
     .hero{ padding: 72px 0 48px; }
+    
+    nav .wrap { justify-content: center; }
+    nav ul { justify-content: center; gap: 12px; }
+  }
+
+  @media (max-width: 400px){
+    nav ul{ gap: 10px; }
+    .resume-meta { text-align: left; } 
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -400,10 +430,6 @@
   .theme-toggle .icon-sun{ display: none; }
   .theme-toggle[data-current="dark"] .icon-sun{ display: block; }
   .theme-toggle[data-current="dark"] .icon-moon{ display: none; }
-
-  @media (max-width: 400px){
-    nav ul{ gap: 10px; }
-  }
 </style>
 </head>
 <body>
@@ -432,9 +458,7 @@
     <div class="prompt-line" style="margin-top:-6px;"><span id="typed"></span></div>
     <h1>Jonathan Alves | <span class="accent">Software Engineer</span></h1>
     <p class="lede">
-      Spent almost a decade planning and estimating civil infrastructure projects, where precision
-      wasn't optional. At 42 Lisboa I apply that same rigor to C and Python: memory-safe, tested,
-      and built to hold up under pressure.
+      Spent almost a decade planning civil infrastructure projects, complemented by 3 years driving business analysis and innovation where precision wasn't optional alligned with client-centric approach. At 42 Lisboa I apply that same rigor to C and Python: memory-safe, tested, and built to hold up under pressure.
     </p>
     <div class="hero-meta">
       <div><span class="diamond">◆</span> <span>Lisbon, Portugal</span></div>
@@ -534,18 +558,18 @@
 
     <div class="role">
       <div class="role-left">
-        <div class="title">Business Analyst &amp; Co-founder</div>
-        <div class="org">Empvision Innovation Consulting, Lisbon</div>
-      </div>
-      <div class="role-date">06/2021 - 01/2025</div>
-    </div>
-
-    <div class="role">
-      <div class="role-left">
         <div class="title">Senior Risk &amp; Fraud Analyst</div>
         <div class="org">Cognizant - Fintech domain, Lisbon</div>
       </div>
       <div class="role-date">09/2022 - 09/2024</div>
+    </div>
+
+    <div class="role">
+      <div class="role-left">
+        <div class="title">Business Analyst &amp; Co-founder</div>
+        <div class="org">Empvision Innovation Consulting, Lisbon</div>
+      </div>
+      <div class="role-date">06/2021 - 01/2025</div>
     </div>
 
     <div class="role">
@@ -569,8 +593,8 @@
 <section id="resume">
   <div class="wrap">
     
-    <div class="section-head-resume">
-      <div class="head-left">
+    <div class="resume-header-bar">
+      <div class="section-head">
         <span class="path mono">./resume</span>
         <h2>Curriculum Vitae</h2>
       </div>
@@ -585,7 +609,7 @@
     <!-- SUMMARY -->
     <h3 class="resume-section-title">Summary</h3>
     <p class="project-desc" style="max-width: 100%;">
-      Transitioning into a Developer role after an 8-year career in civil engineering and project planning. Building a strong Computer Science foundation at 42 Lisboa, focusing on Data Structures and Algorithms. Offering analytical precision, Fintech domain knowledge, and Fluent English. Proven ability to design, implement, and write clean, scalable code, perform rigorous debugging, and apply problem-solving skills to software products within cross-functional teams. Eager to work in a Junior/Intern developer position.
+      Transitioning into a Developer role after an <span class="resume-hl-dim">8-year career</span> in civil engineering and project planning. Building a strong Computer Science foundation at 42 Lisboa, focusing on <span class="resume-hl">Data Structures and Algorithms</span>. Offering analytical precision, Fintech domain knowledge, and Fluent English. Proven ability to design, implement, and write clean, scalable code, perform rigorous debugging, and apply problem-solving skills to software products within cross-functional teams. Eager to work in a Junior/Intern developer position.
     </p>
 
     <!-- EDUCATION -->
@@ -603,10 +627,10 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Mastering software engineering fundamentals, Data Structures and Algorithms, and low-level programming in C and Python.</li>
-        <li>Implementing strict design patterns (OOP), memory management, and scalable software architectures.</li>
-        <li>Setting up repository automations with GitLab CI/CD for testing protocols, Makefiles, and strict code linting rules in the projects.</li>
-        <li>Successfully completed the intensive 26-day 42 Piscine coding bootcamp.</li>
+        <li>Mastering software engineering fundamentals, <span class="resume-hl">Data Structures and Algorithms</span>, and low-level programming in <span class="resume-hl">C and Python</span>.</li>
+        <li>Implementing strict <span class="resume-hl">design patterns (OOP)</span>, memory management, and scalable software architectures.</li>
+        <li>Setting up repository automations with <span class="resume-hl">GitLab CI/CD</span> for testing protocols, Makefiles, and strict code linting rules in the projects.</li>
+        <li>Successfully completed the intensive <span class="resume-hl-dim">26-day 42 Piscine</span> coding bootcamp.</li>
       </ul>
     </div>
 
@@ -622,8 +646,8 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Bridged technical development platforms with IT project methodologies (Agile, Scrum, Cobit).</li>
-        <li>Awarded 3rd place for the best Artificial Intelligence project in the first year and 4th place finalist for the final thesis.</li>
+        <li>Bridged technical development platforms with IT project methodologies (<span class="resume-hl">Agile, Scrum, Cobit</span>).</li>
+        <li>Awarded <span class="resume-hl">3rd place</span> for the best Artificial Intelligence project in the first year and 4th place finalist for the final thesis.</li>
       </ul>
     </div>
 
@@ -642,8 +666,8 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Focus on improving operational efficiency through strong data analysis and digital market trends.</li>
-        <li>Map requirements, design new software systems and IT Solutions, optimizing internal process workflows for tech-oriented business models.</li>
+        <li>Focus on improving <span class="resume-hl-dim">operational efficiency</span> through strong data analysis and digital market trends.</li>
+        <li>Map requirements, design new software systems and <span class="resume-hl">IT Solutions</span>, optimizing internal process workflows for tech-oriented business models.</li>
       </ul>
     </div>
 
@@ -659,8 +683,8 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Analyzing existing programs and investigating complex incidents using advanced data analysis tools to detect and mitigate suspicious patterns in digital wallet transactions.</li>
-        <li>Collaborate directly with cross-functional multidisciplinary engineering and compliance teams to develop systemic solutions and maintain security systems.</li>
+        <li>Analyzing existing programs and investigating complex incidents using <span class="resume-hl-dim">advanced data analysis tools</span> to detect and mitigate suspicious patterns in digital wallet transactions.</li>
+        <li>Collaborate directly with cross-functional multidisciplinary <span class="resume-hl">engineering and compliance teams</span> to develop systemic solutions and maintain security systems.</li>
       </ul>
     </div>
 
@@ -676,7 +700,7 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Performed deep troubleshooting of critical problems, evaluating user feedback, and fixing bugs reported on the platform.</li>
+        <li>Performed deep troubleshooting of critical problems, evaluating user feedback, and <span class="resume-hl-dim">fixing bugs</span> reported on the platform.</li>
         <li>Created data-driven internal projects and technical documents to improve operational KPIs in collaboration with the Center of Excellence.</li>
       </ul>
     </div>
@@ -693,8 +717,8 @@
         </div>
       </div>
       <ul class="resume-list">
-        <li>Managed and manipulated robust databases via ERP System and engineering software, ensuring extreme precision and version control.</li>
-        <li>Applied analytical structuring and mathematical modeling to create, analyze and coordinate budgets, demonstrating the ability to work well under pressure.</li>
+        <li>Managed and manipulated robust databases via <span class="resume-hl-dim">ERP Systems</span> and engineering software, ensuring extreme precision and version control.</li>
+        <li>Applied analytical structuring and <span class="resume-hl">mathematical modeling</span> to create, analyze and coordinate budgets, demonstrating the ability to work well under pressure.</li>
       </ul>
     </div>
 
@@ -710,8 +734,8 @@
         <div class="resume-meta">2026</div>
       </div>
       <ul class="resume-list">
-        <li>Designed and implemented a custom C standard library from scratch, demonstrating advanced memory management, pointer manipulation, and rigorous debugging practices.</li>
-        <li>Applied industry best practices for version control using Conventional Commits (cz-git) and structured Makefiles for efficient compilation.</li>
+        <li>Designed and implemented a custom <span class="resume-hl">C standard library</span> from scratch, demonstrating advanced memory management, pointer manipulation, and rigorous debugging practices.</li>
+        <li>Applied industry best practices for version control using <span class="resume-hl-dim">Conventional Commits</span> and structured Makefiles for efficient compilation.</li>
       </ul>
     </div>
 
@@ -724,8 +748,8 @@
         <div class="resume-meta">2026</div>
       </div>
       <ul class="resume-list">
-        <li>Engineered a file-descriptor line-reading function, achieving a <strong>100/100 evaluation score</strong> with <strong>zero memory leaks</strong> detected via Valgrind.</li>
-        <li>Built a GitLab CI/CD pipeline with <strong>4 automated stages</strong> (Norminette check, parallel BUFFER-SIZE builds, output validation, Valgrind memory check) running on every commit.</li>
+        <li>Engineered a file-descriptor line-reading function, achieving a <span class="resume-hl">100/100 evaluation score</span> with <span class="resume-hl">zero memory leaks</span> detected via Valgrind.</li>
+        <li>Built a GitLab CI/CD pipeline with <span class="resume-hl-dim">4 automated stages</span> (Norminette check, parallel BUFFER-SIZE builds, output validation, Valgrind memory check) running on every commit.</li>
         <li>Authored comprehensive technical documentation (README) utilizing shields.io badges to communicate project architecture.</li>
       </ul>
     </div>
@@ -739,8 +763,8 @@
         <div class="resume-meta">2026</div>
       </div>
       <ul class="resume-list">
-        <li>Implemented an tightened sorting algorithm with two stacks and a restricted instruction set, then validated it against 42's standard evaluation benchmarks on 100 / 500 / 5000-element datasets.</li>
-        <li>Engineered robust input parsing (<code>ft_atoi</code>) with rigorous range validation to prevent integer overflow vulnerabilities.</li>
+        <li>Implemented an tightened sorting algorithm with two stacks and a restricted instruction set, then validated it against 42's standard evaluation benchmarks on <span class="resume-hl">100 / 500 / 5000-element datasets</span>.</li>
+        <li>Engineered robust input parsing (<code style="color:var(--accent-dim);">ft_atoi</code>) with rigorous range validation to prevent <span class="resume-hl-dim">integer overflow vulnerabilities</span>.</li>
       </ul>
     </div>
 
@@ -753,7 +777,7 @@
         <div class="resume-meta">07/2026 – Present</div>
       </div>
       <ul class="resume-list">
-        <li>Founded and lead the official athletic group at 42 Lisboa, organizing monthly fitness challenges and a tiered badge ranking system (Bronze/Silver/Gold/Platinum) to promote well-being among developers.</li>
+        <li>Founded and lead the official athletic group at 42 Lisboa, organizing monthly fitness challenges and a tiered badge ranking system (<span class="resume-hl-dim">Bronze/Silver/Gold/Platinum</span>) to promote well-being among developers.</li>
       </ul>
     </div>
 
@@ -785,7 +809,7 @@
 </footer>
 
 <script>
-  const text = "C & Python developer. 8 years in civil engineering. 42 Lisboa, 2026 class.";
+  const text = "C & Python developer. 8 years in civil engineering and business innovation analysis | 42 Lisboa, 2026 class.";
   const el = document.getElementById('typed');
   if(el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     let i = 0;
@@ -797,7 +821,7 @@
       if(i < text.length){
         el.textContent += text.charAt(i);
         i++;
-        setTimeout(type, 18);
+        setTimeout(type, 22);
       }
     }
     type();
